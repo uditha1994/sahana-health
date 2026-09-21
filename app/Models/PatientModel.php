@@ -10,7 +10,7 @@ class PatientModel extends Model{
     //primary key
     protected $primaryKey = 'patient_id';
 
-    protected $allowedFields = ['patient_name','contactNo','status'];
+    protected $allowedFields = ['patient_name','patient_contact','status'];
 
     // protected $useTimestamps = 'true';
     // protected $createdField = 'created_at';
@@ -19,13 +19,13 @@ class PatientModel extends Model{
     //validation rules
     protected $validationRules = [
         'patient_name' => 'required|min_length[3]|max_length[100]',
-        'contactNo' => 'min_length[3]|max_length[10]',
+        'patient_contact' => 'min_length[3]|max_length[10]',
         'status' => 'required|max_length[1]'
     ];
 
     protected $validationMessages = [
         'patient_name' => ['required'=>'Patient Name is required'],
         'status' => ['required'=>'Status is required'],
-        'contactNo' => ['max_lenth' => 'Maximum character length 10']
+        'patient_contact' => ['max_length' => 'Maximum character length 10']
     ];
 }
