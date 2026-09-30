@@ -23,7 +23,7 @@ class PatientController extends BaseController
     public function create()
     {
         //return empty form
-        return view('patient/create');
+        return view('patients/create');
     }
 
     //POST /patient/store
@@ -34,6 +34,8 @@ class PatientController extends BaseController
             'patient_contact' => $this->request->getPost('patient_contact'),
             'status' => $this->request->getPost('status'),
         ];
+
+        echo($data);
 
         if (!$this->patientModel->insert($data)) {
             return redirect()->back()->withInput()

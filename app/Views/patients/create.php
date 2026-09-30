@@ -24,18 +24,18 @@
         <?= csrf_field() ?>
  
         <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="text" name="name" class="form-control" value="<?= old('name') ?>">
+            <label class="form-label">Patient Name</label>
+            <input type="text" name="patient_name" class="form-control" value="<?= old('patient_name') ?>">
         </div>
  
         <div class="mb-3">
-            <label class="form-label">NIC Number</label>
-            <input type="text" name="nic" class="form-control" value="<?= old('nic') ?>">
+            <label class="form-label">Contact Number</label>
+            <input type="text" name="patient_contact" class="form-control" value="<?= old('patient_contact') ?>">
         </div>
  
         <div class="mb-3">
-            <label class="form-label">Phone Number</label>
-            <input type="text" name="phone" class="form-control" value="<?= old('phone') ?>">
+            <label class="form-label">Status</label>
+            <input type="text" name="status" class="form-control" value="<?= old('status') ?>">
         </div>
  
         <button type="submit" class="btn btn-success">Save Patient</button>
