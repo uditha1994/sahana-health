@@ -43,8 +43,29 @@ class PatientController extends BaseController
         return redirect()->to('/patients')->with('success', 'Patient added Successfully');
     }
 
+    //GET /patients/edit/{id}
+    public function edit($id){
+        $data['patient'] = $this -> patientModel -> find($id);
+
+        if(!data['patient']){
+            return redirect() -> to('/patients') -> with('errors',['Patient not found']);
+        }
+
+        return view('patients/edit', $data)
+    }
+
     public function update()
     {
+        $data = [
+            'patient_name' => $this->request->getPost('patient_name'),
+            'patient_contact' => $this->request->getPost('patient_contact'),
+            'status' => $this->request->getPost('status'),
+        ];
+
+        if(!$this -> patientModel -> update($id, $data)){
+            return redirect()->back()->withInput()->
+            with('errors',$this->patientModel->error());
+        }
     }
 
     public function delete()
