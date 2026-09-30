@@ -39,10 +39,10 @@ class PatientController extends BaseController
 
         if (!$this->patientModel->insert($data)) {
             return redirect()->back()->withInput()
-                ->with('error', $this->patientModel->errors());
+                ->with('errors', $this->patientModel->errors());
         }
 
-        return redirect()->to('/patient')->with('success', 'Patient added Successfully');
+        return redirect()->to('/patients')->with('success', 'Patient added Successfully');
     }
 
     public function update()
