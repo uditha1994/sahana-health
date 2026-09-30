@@ -35,8 +35,6 @@ class PatientController extends BaseController
             'status' => $this->request->getPost('status'),
         ];
 
-        echo($data);
-
         if (!$this->patientModel->insert($data)) {
             return redirect()->back()->withInput()
                 ->with('errors', $this->patientModel->errors());
